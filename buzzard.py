@@ -588,7 +588,7 @@ def drawSVG(svg_attributes, attributes, paths):
         out += "(footprint \"buzzardLabel\"\n" + \
             " (layer \"F.Cu\")\n" + \
             " (attr board_only exclude_from_pos_files exclude_from_bom)\n"
-    if args.outMode == "ki5":
+    if args.outMode == "ki-5.1.x":
         out += "(module \"buzzardLabel\"" + \
             " (layer \"F.Cu\")" + \
             " (tedit \"" + hex(int(time.time()))[2:-1].upper() + "\")\n" + \
@@ -726,7 +726,7 @@ def drawSVG(svg_attributes, attributes, paths):
 
                     if args.outMode == "ki":
                         scriptLine += ") (layer \"F.SilkS\") (width 0.01) (fill solid))\n"
-                    elif args.outMode == "ki5":
+                    elif args.outMode == "ki-5.1.x":
                         scriptLine += ") (layer \"F.SilkS\") (width 0.01))\n"
             else:
 
@@ -1118,8 +1118,8 @@ if __name__ == '__main__':
     parser.add_argument('-v', dest='verbose', default=False,
                         help='Verbose mode (helpful for debugging)', action='store_true')
 
-    parser.add_argument('-o', dest='outMode', default='b', choices=['b', 'ls', 'lib', 'ki', 'ki5'],
-                        help='Output Mode (\'b\'=board script, \'ls\'=library script, \'lib\'=library file, \'ki\'=KiCad v6 footprint, \'ki5\'=KiCad v5 footprint)')
+    parser.add_argument('-o', dest='outMode', default='b', choices=['b', 'ls', 'lib', 'ki', 'ki-5.1.x'],
+                        help='Output Mode (\'b\'=board script, \'ls\'=library script, \'lib\'=library file, \'ki\'=KiCad nightly(5.99) footprint, \'ki-5.1.x\'=Kicad 5.1.x footprint)')
 
     parser.add_argument('-n', dest='signalName', default='GND',
                         help='Signal name for polygon. Required if layer is not 21 (default is \'GND\')')
