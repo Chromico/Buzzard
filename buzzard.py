@@ -1,3 +1,6 @@
+import sys
+# For Windows users using KiCad stable
+#sys.path.append('C:\\Users\\[USERNAME]\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages') 
 from svgpathtools import Line, QuadraticBezier, CubicBezier, Path, Arc, svg2paths2
 from svgelements import Path as elPath, Matrix
 from freetype import Face #pip install freetype-py
@@ -8,7 +11,6 @@ import bezier #pip install bezier
 import math
 import subprocess
 import os
-import sys
 import re
 import xml.etree.ElementTree as XMLET
 import shlex
